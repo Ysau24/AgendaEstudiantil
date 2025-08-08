@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|c:\\users\\dell\\source\\repos\\agendaestudiantil\\agendaestudiantil\\views\\eventos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|solutionrelative:agendaestudiantil\\views\\eventos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|c:\\users\\dell\\source\\repos\\agendaestudiantil\\agendaestudiantil\\controllers\\eventoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|solutionrelative:agendaestudiantil\\controllers\\eventoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|c:\\users\\dell\\source\\repos\\agendaestudiantil\\agendaestudiantil\\views\\eventos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|solutionrelative:agendaestudiantil\\views\\eventos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|c:\\users\\dell\\source\\repos\\agendaestudiantil\\agendaestudiantil\\views\\eventos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|solutionrelative:agendaestudiantil\\views\\eventos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|c:\\users\\dell\\source\\repos\\agendaestudiantil\\agendaestudiantil\\views\\eventos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|solutionrelative:agendaestudiantil\\views\\eventos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|c:\\users\\dell\\source\\repos\\agendaestudiantil\\agendaestudiantil\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0244FEFE-E989-4086-A425-9F8BE1040139}|AgendaEstudiantil\\AgendaEstudiantil.csproj|solutionrelative:agendaestudiantil\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Views\\Eventos\\Index.cshtml",
+              "RelativeDocumentMoniker": "AgendaEstudiantil\\Views\\Eventos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Views\\Eventos\\Index.cshtml",
+              "RelativeToolTip": "AgendaEstudiantil\\Views\\Eventos\\Index.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-08T00:53:11.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventosController.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Controllers\\EventosController.cs",
+              "RelativeDocumentMoniker": "AgendaEstudiantil\\Controllers\\EventosController.cs",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Controllers\\EventosController.cs",
+              "RelativeToolTip": "AgendaEstudiantil\\Controllers\\EventosController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAA3wFYAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T00:49:30.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Views\\Eventos\\Edit.cshtml",
+              "RelativeDocumentMoniker": "AgendaEstudiantil\\Views\\Eventos\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Views\\Eventos\\Edit.cshtml",
+              "RelativeToolTip": "AgendaEstudiantil\\Views\\Eventos\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-07T23:29:03.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Views\\Eventos\\Create.cshtml",
+              "RelativeDocumentMoniker": "AgendaEstudiantil\\Views\\Eventos\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Views\\Eventos\\Create.cshtml",
+              "RelativeToolTip": "AgendaEstudiantil\\Views\\Eventos\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-07T20:50:16.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Views\\Eventos\\Delete.cshtml",
+              "RelativeDocumentMoniker": "AgendaEstudiantil\\Views\\Eventos\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Views\\Eventos\\Delete.cshtml",
+              "RelativeToolTip": "AgendaEstudiantil\\Views\\Eventos\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-07T22:55:03.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "AgendaEstudiantil\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\AgendaEstudiantil\\AgendaEstudiantil\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "AgendaEstudiantil\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-07T03:34:42.317Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
