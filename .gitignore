@@ -1,0 +1,20 @@
+# Archivos de configuración de usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos binarios y de compilación
+bin/
+obj/
+
+# Archivos de publicación
+publish/
+*.Publish.xml
+
+# Configuración de VSCode (si usas)
+.vscode/
+
+# Archivos temporales
+*.log
+*.tmp
