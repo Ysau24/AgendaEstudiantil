@@ -1,0 +1,54 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<h1 class="text-center" style="color: white;  margin-top: 80px;">@ViewData["Title"]</h1>
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <input type="hidden" asp-for="ReturnUrl" />
+                <p class="text-center" style="color: white; font-size: 20px">Inicia sesión con una cuenta local.</p>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email" class="form-label">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password" class="form-label">Contraseña</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="checkbox mb-3">
+                    <label asp-for="Input.RememberMe" class="form-label" style="color:white;">
+                        <input class="form-check-input" asp-for="Input.RememberMe" />
+                        Mantener la sesión iniciada
+                    </label>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg" style="background-color: #1565C0; color: white; font-weight: bold;">Iniciar sesión</button>
+                </div>
+                <div>
+                    <p class="text-center" style="margin-top: 20px; color: white">
+                        <a id="forgot-password" asp-page="./ForgotPassword" style="color: white;">¿Olvidaste tu contraseña?</a>
+                    </p>
+                    <p class="text-center">
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="color: white;">Regístrate como nuevo usuario</a>
+                    </p>
+                    <p class="text-center">
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" style="color: white;">Reenviar confirmación por correo electrónico</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
