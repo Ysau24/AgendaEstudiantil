@@ -21,7 +21,7 @@ namespace AgendaEstudiantil.Tests.Tests
 
             wait.Until(d => d.FindElement(By.CssSelector("table.table")));
 
-            //ESto seleccionar el primer botón Eliminar dentro de la tabla
+            //Esto selecciona el primer botón "Eliminar" dentro de la tabla
             var botonEliminar = driver.FindElement(By.CssSelector("table.table a.btn-danger"));
 
             var filaEvento = botonEliminar.FindElement(By.XPath("./ancestor::tr"));
