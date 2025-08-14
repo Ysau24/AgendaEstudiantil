@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using AgendaEstudiantil.Data;
 using AgendaEstudiantil.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace AgendaEstudiantil.Controllers
 {
@@ -18,9 +19,35 @@ namespace AgendaEstudiantil.Controllers
         }
 
         // GET: Eventos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? busqueda, int? mes)
         {
-            return View(await _context.Eventos.ToListAsync());
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var eventosUsuario = _context.Eventos
+                                         .Where(e => e.UserId == userId);
+
+            if (!string.IsNullOrEmpty(busqueda))
+            {
+                eventosUsuario = eventosUsuario
+                                .Where(e => e.Titulo.Contains(busqueda));
+            }
+
+            if (mes.HasValue)
+            {
+                eventosUsuario = eventosUsuario.Where(e => e.Fecha.Month == mes.Value);
+            }
+
+            var listaOrdenada = await eventosUsuario
+                                     .OrderBy(e => e.Fecha)
+                                     .ToListAsync();
+
+            if (!listaOrdenada.Any())
+            {
+                ViewBag.Mensaje = string.IsNullOrEmpty(busqueda) ? "No hay eventos disponibles" : "No se encontraron eventos";
+            }
+
+            return View(listaOrdenada);
+
         }
 
         // GET: Eventos/Details/5
@@ -36,6 +63,12 @@ namespace AgendaEstudiantil.Controllers
             if (evento == null)
             {
                 return NotFound();
+            }
+
+            if (string.IsNullOrWhiteSpace(evento.Descripcion))
+            {
+                TempData["Mensaje"] = "Este evento no tiene descripción y no se puede mostrar.";
+                return RedirectToAction(nameof(Index));
             }
 
             return View(evento);
@@ -56,6 +89,11 @@ namespace AgendaEstudiantil.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                // Obtener el id del usuario autenticado
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                evento.UserId = userId;
+
                 _context.Add(evento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -72,7 +110,11 @@ namespace AgendaEstudiantil.Controllers
                 return NotFound();
             }
 
-            var evento = await _context.Eventos.FindAsync(id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var evento = await _context.Eventos
+                .Where(e => e.Id == id && e.UserId == userId)
+                .FirstOrDefaultAsync();
+
             if (evento == null)
             {
                 return NotFound();
@@ -94,9 +136,25 @@ namespace AgendaEstudiantil.Controllers
 
             if (ModelState.IsValid)
             {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                // Buscar el evento original y asegurarse que pertenezca al usuario
+                var eventoOriginal = await _context.Eventos
+                    .Where(e => e.Id == id && e.UserId == userId)
+                    .FirstOrDefaultAsync();
+
+                if (eventoOriginal == null)
+                {
+                    return NotFound();
+                }
+
+                // Actualizar sólo los campos permitidos
+                eventoOriginal.Titulo = evento.Titulo;
+                eventoOriginal.Fecha = evento.Fecha;
+                eventoOriginal.Descripcion = evento.Descripcion;
+
                 try
                 {
-                    _context.Update(evento);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -123,8 +181,12 @@ namespace AgendaEstudiantil.Controllers
                 return NotFound();
             }
 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var evento = await _context.Eventos
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Where(e => e.Id == id && e.UserId == userId)
+                .FirstOrDefaultAsync();
+
             if (evento == null)
             {
                 return NotFound();
@@ -138,13 +200,39 @@ namespace AgendaEstudiantil.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var evento = await _context.Eventos.FindAsync(id);
-            if (evento != null)
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var evento = await _context.Eventos
+                .Where(e => e.Id == id && e.UserId == userId)
+                .FirstOrDefaultAsync();
+
+            if (evento == null)
             {
-                _context.Eventos.Remove(evento);
+                return NotFound();
             }
 
+            _context.Eventos.Remove(evento);
             await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Completar(int id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var evento = await _context.Eventos
+                                       .Where(e => e.Id == id && e.UserId == userId)
+                                       .FirstOrDefaultAsync();
+
+            if (evento == null || evento.Fecha < DateTime.Today)
+            {
+                return NotFound();
+            }
+
+            evento.Completado = true;
+            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 

@@ -14,5 +14,9 @@ namespace AgendaEstudiantil.Models
         public DateTime Fecha { get; set; }
 
         public string? Descripcion { get; set; }
+
+        public string? UserId { get; set; }
+
+        public bool Completado { get; set; } = false; 
     }
 }

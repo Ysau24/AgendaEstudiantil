@@ -10,6 +10,75 @@
     <a asp-action="Create" class="btn btn-light" style="color: #2a75d1; font-weight: bold;">Crear nuevo evento</a>
 </div>
 
+<div class="mb-3">
+    <form method="get">
+        <label for="mes">Filtrar por mes:</label>
+        <select id="mes" name="mes" class="form-select d-inline w-auto">
+            <option value="">Todos</option>
+            @for (int i = 1; i <= 12; i++)
+            {
+                    <option value="@i">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i)</option>
+            }
+        </select>
+        <button type="submit" class="btn btn-primary btn-sm">Filtrar</button>
+    </form>
+</div>
+
+@if (ViewBag.Mensaje != null)
+{
+        <div class="alert alert-info">@ViewBag.Mensaje</div>
+}
+
+@if (TempData["Mensaje"] != null)
+{
+    <div id="mensajeTemp" class="alert alert-warning">
+        @TempData["Mensaje"]
+    </div>
+}
+
+
+<div class="mb-3">
+    <input type="text" id="busqueda" placeholder="Buscar por título..." class="form-control w-50 d-inline" />
+    <div id="mensajeBusqueda" class="alert alert-info mt-2" style="display:none;">No se encontraron eventos</div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+            $("#busqueda").on("keyup", function(){
+                var value = $(this).val().toLowerCase();
+                var filasVisibles = 0;
+
+                $("table tbody tr").each(function(){
+                    var coincide = $(this).find("td:first").text().toLowerCase().indexOf(value) > -1;
+                    $(this).toggle(coincide);
+                    if(coincide) filasVisibles++;
+                });
+
+                if(filasVisibles == 0){
+                    $("#mensajeBusqueda").show();
+                } else {
+                    $("#mensajeBusqueda").hide();
+                }
+            });
+        });
+    </script>
+
+    <script>
+        //Esperar 4 segundos y ocultar el mensaje
+        setTimeout(function () {
+            var mensaje = document.getElementById("mensajeTemp");
+            if (mensaje) {
+                mensaje.style.display = "none";
+            }
+        }, 4000);
+    </script>
+
+
+}
+
+
+
 <div class="table-responsive">
     <table class="table table-bordered table-hover align-middle bg-white">
         <thead class="table-primary text-center">
@@ -23,11 +92,23 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td class ="text-center">@Html.DisplayFor(modelItem => item.Titulo)</td>
+                <tr class="@(item.Completado ? "table-success" : "")">
+                    <td class="text-center">@Html.DisplayFor(modelItem => item.Titulo)</td>
                     <td class="text-center">@Html.DisplayFor(modelItem => item.Fecha)</td>
                     <td class="text-center">@Html.DisplayFor(modelItem => item.Descripcion)</td>
                     <td class="text-center">
+                        @if (!item.Completado && item.Fecha >= DateTime.Today)
+                        {
+                            <form asp-action="Completar" method="post" style="display:inline">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="btn btn-success btn-sm">Marcar como completado</button>
+                            </form>
+                        }
+                        else if (item.Completado)
+                        {
+                            <span class="badge bg-success">Completado</span>
+                        }
+
                         <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">Editar</a>
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary me-1">Detalles</a>
                         <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Eliminar</a>
