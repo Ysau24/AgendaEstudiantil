@@ -1,6 +1,5 @@
 ﻿using AgendaEstudiantil.Tests.Helpers;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 
 namespace AgendaEstudiantil.Tests.Tests

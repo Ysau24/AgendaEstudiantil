@@ -12,7 +12,7 @@
 
 <div class="mb-3">
     <form method="get">
-        <label for="mes">Filtrar por mes:</label>
+        <label for="mes" style="color:white">Filtrar por mes:</label>
         <select id="mes" name="mes" class="form-select d-inline w-auto">
             <option value="">Todos</option>
             @for (int i = 1; i <= 12; i++)
@@ -20,7 +20,7 @@
                     <option value="@i">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i)</option>
             }
         </select>
-        <button type="submit" class="btn btn-primary btn-sm">Filtrar</button>
+        <button type="submit" class="btn btn-primary btn-sm" style="background-color: #1565C0; color: white; font-weight: bold;">Filtrar</button>
     </form>
 </div>
 
@@ -97,7 +97,7 @@
                     <td class="text-center">@Html.DisplayFor(modelItem => item.Fecha)</td>
                     <td class="text-center">@Html.DisplayFor(modelItem => item.Descripcion)</td>
                     <td class="text-center">
-                        @if (!item.Completado && item.Fecha >= DateTime.Today)
+                        @if (!item.Completado)
                         {
                             <form asp-action="Completar" method="post" style="display:inline">
                                 <input type="hidden" name="id" value="@item.Id" />
